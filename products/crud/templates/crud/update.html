@@ -1,0 +1,12 @@
+{% extends 'crud/base.html' %}
+
+{% block title %}Update{% endblock %}
+
+{% block content %}
+    <h2>Update Product</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Update Product</button>
+    </form>
+{% endblock %}

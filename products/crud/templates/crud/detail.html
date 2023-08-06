@@ -1,0 +1,15 @@
+{% extends 'crud/base.html' %}
+
+{% block title %}{{product.name}}{% endblock %}
+
+{% block content %}
+<ol class="detail">
+        <h2>{{ product.name }} ({{page_title}})</h2> 
+        <p>Price: &#8377; {{ product.price }}</p>
+        <p>Sold: {{ product.sold }} units</p>
+        <p>Remaining: {{ product.remaining }} units</p>
+        <p>Total: {{ product.total }} units</p>
+        <p>Revenue: &#8377; {{ product.revenue }}</p>
+        <p>Review: {{ product.review }}/5</p>
+    </ol>
+{% endblock %}

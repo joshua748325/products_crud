@@ -1,0 +1,38 @@
+{% extends 'crud/base.html' %}
+
+{% block title%} Home {% endblock %}
+
+{% block content%}
+    <section id="table">
+        <h2>{{page_title}}</h2>
+        <table>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Sold</th>
+                <th>Remaining</th>
+                <th>Total</th>
+                <th>Revenue</th>
+                <th>Review</th>
+                <th>Options</th>
+            </tr>
+            {% for product in product_list %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><a class="link" href="{% url 'crud:product' product.id %}">{{ product.name }}</a></td>
+                <td>&#8377; {{ product.price }}</td>
+                <td>{{ product.sold }} units</td>
+                <td>{{ product.remaining }} units</td>
+                <td>{{ product.total }} units</td>
+                <td>&#8377; {{ product.revenue }}</td>
+                <td>{{ product.review }}/5</td>
+                <td class="options">
+                    <a class="option" href="{% url 'crud:update' product.id %}">Update</a>
+                    <a class="option" href="{% url 'crud:delete' product.id %}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </section>
+{% endblock %}
